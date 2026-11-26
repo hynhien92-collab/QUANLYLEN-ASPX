@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Web ASPX\\UC\\QUANLYLEN-ASPX\\BaoCao_QuanLyLen\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9546F21-C695-4699-8696-C706A909079D}|BaoCao_QuanLyLen\\BaoCao_QuanLyLen.csproj|d:\\web aspx\\uc\\quanlylen-aspx\\baocao_quanlylen\\baocao_quanlylen\\baocao.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9546F21-C695-4699-8696-C706A909079D}|BaoCao_QuanLyLen\\BaoCao_QuanLyLen.csproj|solutionrelative:baocao_quanlylen\\baocao.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9546F21-C695-4699-8696-C706A909079D}|BaoCao_QuanLyLen\\BaoCao_QuanLyLen.csproj|d:\\web aspx\\uc\\quanlylen-aspx\\baocao_quanlylen\\baocao_quanlylen\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{C9546F21-C695-4699-8696-C706A909079D}|BaoCao_QuanLyLen\\BaoCao_QuanLyLen.csproj|solutionrelative:baocao_quanlylen\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -17,11 +26,37 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "style.css",
+              "DocumentMoniker": "D:\\Web ASPX\\UC\\QUANLYLEN-ASPX\\BaoCao_QuanLyLen\\BaoCao_QuanLyLen\\style.css",
+              "RelativeDocumentMoniker": "BaoCao_QuanLyLen\\style.css",
+              "ToolTip": "D:\\Web ASPX\\UC\\QUANLYLEN-ASPX\\BaoCao_QuanLyLen\\BaoCao_QuanLyLen\\style.css",
+              "RelativeToolTip": "BaoCao_QuanLyLen\\style.css",
+              "ViewState": "AgIAAL0DAAAAAAAAAAAAAL0DAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-11-26T09:15:50.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaoCao.html",
+              "DocumentMoniker": "D:\\Web ASPX\\UC\\QUANLYLEN-ASPX\\BaoCao_QuanLyLen\\BaoCao_QuanLyLen\\BaoCao.html",
+              "RelativeDocumentMoniker": "BaoCao_QuanLyLen\\BaoCao.html",
+              "ToolTip": "D:\\Web ASPX\\UC\\QUANLYLEN-ASPX\\BaoCao_QuanLyLen\\BaoCao_QuanLyLen\\BaoCao.html",
+              "RelativeToolTip": "BaoCao_QuanLyLen\\BaoCao.html",
+              "ViewState": "AgIAABUFAAAAAAAAAAAswCEFAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-11-26T09:14:59.24Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

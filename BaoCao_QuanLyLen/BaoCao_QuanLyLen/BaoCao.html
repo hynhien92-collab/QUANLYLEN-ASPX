@@ -1,0 +1,1332 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Len Sợi - Tư Vấn & Dụng Cụ Đan Móc Handmade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <span>🌸 Tiệm Len Sợi - Miễn phí giao hàng cho đơn từ 250.000₫ | Hotline: 098. 144. 16 17</span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🧶</span>
+                <div class="logo-text">
+                    <h2>TIỆM LEN SỢI</h2>
+                    <small>Handmade & Craft Supplies</small>
+                </div>
+            </a>
+
+            <!-- SEARCH BAR -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Tìm len Milk Cotton, kim móc, thú bông...">
+                <button type="button" onclick="filterBySearch()">🔍</button>
+            </div>
+
+            <!-- HEADER ACTIONS (TÀI KHOẢN + GIỎ HÀNG) -->
+            <div class="header-actions">
+                <!-- Khu vực Tài khoản -->
+                <div class="account-wrapper" id="accountWrapper">
+                    <button type="button" class="action-item account-btn" id="accountBtn" onclick="handleAccountClick()">
+                        <span class="icon">👤</span>
+                        <span class="text" id="accountBtnText">Tài khoản</span>
+                    </button>
+
+                    <!-- Menu thả xuống khi đã đăng nhập -->
+                    <div class="account-dropdown" id="accountDropdown">
+                        <div class="dropdown-user-info">
+                            <strong id="dropdownUserName">Khách hàng</strong>
+                            <small id="dropdownUserEmail">khachhang@tiemlensoi.vn</small>
+                        </div>
+                        <button type="button" onclick="openAccountModal('profile')">📋 Hồ sơ cá nhân</button>
+                        <button type="button" onclick="openAccountModal('orders')">📦 Đơn hàng của tôi</button>
+                        <hr>
+                        <button type="button" class="logout-btn" onclick="handleLogout()">🚪 Đăng xuất</button>
+                    </div>
+                </div>
+
+                <!-- Nút Giỏ hàng -->
+                <button type="button" class="action-item cart-btn" onclick="openCart()" title="Mở giỏ hàng">
+                    <span class="icon">🛒</span>
+                    <span class="text">Giỏ hàng</span>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- NAVIGATION MENU (1 HÀNG NGANG GỌN GÀNG) -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li class="active"><a href="#">TRANG CHỦ</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="#productSection">CHỌN LOẠI LEN ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#productSection">🧶 Len Milk Cotton (50g / 125g)</a></li>
+                            <li><a href="#productSection">🧸 Len Nhung Đũa & Nhung Tuyết</a></li>
+                            <li><a href="#productSection">👶 Len Baby Yarn (Cho bé sơ sinh)</a></li>
+                            <li><a href="#productSection">❄️ Len Bông Tuyết & Kim Tuyến</a></li>
+                            <li><a href="#productSection">🌈 Len Sợi Vải & Len Cầu Vồng</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="#productSection">KIM ĐAN & KIM MÓC ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#productSection">Kim móc cán dẻo cơ bản</a></li>
+                            <li><a href="#productSection">Bộ 4 kim móc dễ thương</a></li>
+                            <li><a href="#productSection">Kim móc Thất Châm Phương cao cấp</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="#productSection">PHỤ KIỆN THÚ BÔNG ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#productSection">Mắt thú, mũi thú & ghim đánh dấu</a></li>
+                            <li><a href="#productSection">Bông gòn bi nhồi thú</a></li>
+                            <li><a href="#productSection">Kẽm nhung làm hoa handmade</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="#productSection">SẢN PHẨM THÀNH PHẨM ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#productSection">Thú bông len handmade</a></li>
+                            <li><a href="#productSection">Bó hoa & chậu hoa len</a></li>
+                            <li><a href="#productSection">Túi xách & phụ kiện len</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO BANNER & SMART YARN ADVISOR WIDGET -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-banner">
+                <div class="breadcrumb">
+                    <a href="#">Trang chủ</a> / <a href="#">Danh mục</a> / <span>Len Sợi & Dụng Cụ Đan Móc</span>
+                </div>
+                <div class="banner-card">
+                    <img src="nentiemlen.jpg" alt="Banner Tiệm Len Sợi">
+                    <div class="banner-overlay">
+                        <span class="tag">BỘ SƯU TẬP MỚI</span>
+                        <h1>Thế Giới Len Sợi Handmade Dễ Thương</h1>
+                        <p>Nguyên liệu & Phụ kiện đan móc cao cấp nhập khẩu chính hãng</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="yarn-advisor-widget">
+                <div class="advisor-header">
+                    <span class="sparkle">✨</span>
+                    <h3>GỢI Ý CHỌN LEN & KIM MÓC</h3>
+                </div>
+                <p class="advisor-desc">Nhập dự án của bạn để hệ thống tự động tư vấn nguyên liệu chuẩn nhất!</p>
+
+                <form class="advisor-form" id="advisorForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="projectType">Bạn muốn làm sản phẩm gì?</label>
+                        <select id="projectType">
+                            <option value="amigurumi">🧸 Thú bông len (Amigurumi)</option>
+                            <option value="clothes_summer">👕 Áo/Khăn mùa hè (Mỏng nhẹ)</option>
+                            <option value="clothes_winter">🧥 Áo/Khăn mùa đông (Dày ấm)</option>
+                            <option value="baby">👶 Đồ cho bé sơ sinh (Mềm mại)</option>
+                            <option value="flowers">💐 Hoa len trang trí</option>
+                            <option value="bag">👜 Túi xách / Nón handmade</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experienceLevel">Trình độ đan móc của bạn:</label>
+                        <select id="experienceLevel">
+                            <option value="beginner">Mới bắt đầu học móc</option>
+                            <option value="intermediate">Đã biết các mũi cơ bản</option>
+                            <option value="pro">Đan móc thành thạo</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-advise" onclick="adviseYarn()">TƯ VẤN NGAY 🚀</button>
+                </form>
+
+                <div class="advisor-result" id="advisorResult" style="display: none;">
+                    <h4>💡 Gợi ý chuẩn từ Tiệm:</h4>
+                    <ul>
+                        <li><b>Dòng len khuyến nghị:</b> <span id="recYarn">Milk Cotton 50g / 125g</span></li>
+                        <li><b>Size kim móc phù hợp:</b> <span id="recNeedle">2.5mm - 3.0mm</span></li>
+                        <li><b>Số lượng ước tính:</b> <span id="recQty">2 - 4 cuộn tùy size</span></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="container" id="productSection">
+        <!-- SIDEBAR BỘ LỌC -->
+        <aside class="sidebar">
+            <div class="filter-card">
+                <h3 class="filter-title">BỘ LỌC TÌM KIẾM</h3>
+
+                <div class="filter-group">
+                    <h4>CHẤT LIỆU</h4>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                        Cotton nguyên chất
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Sợi Acrylic
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Sợi nhung (Chenille)
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Sợi len cừu
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Kẽm nhung / Bông tuyết
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>KHOẢNG GIÁ</h4>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Dưới 15,000₫
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        15,000₫ - 30,000₫
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        30,000₫ - 50,000₫
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        50,000₫ - 100,000₫
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Trên 100,000₫
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>MÀU SẮC PHỔ BIẾN</h4>
+                    <div class="color-swatches">
+                        <span class="color-box" style="background-color: #ffb6c1;" title="Hồng nhạt"></span>
+                        <span class="color-box" style="background-color: #87ceeb;" title="Xanh da trời"></span>
+                        <span class="color-box" style="background-color: #f5f5dc;" title="Màu kem"></span>
+                        <span class="color-box" style="background-color: #000000;" title="Đen"></span>
+                        <span class="color-box" style="background-color: #ffffff; border: 1px solid #ddd;" title="Trắng"></span>
+                        <span class="color-box" style="background-color: #8b4513;" title="Nâu"></span>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-reset-filter" onclick="resetSearch()">Xóa bộ lọc</button>
+            </div>
+        </aside>
+
+        <!-- SẢN PHẨM MAIN CONTENT -->
+        <section class="main-content">
+            <div class="content-header">
+                <div>
+                    <h2>Len Sợi & Sản Phẩm Đan Móc</h2>
+                    <span class="product-count" id="productCount">Hiển thị 24 sản phẩm</span>
+                </div>
+                <div class="sort-wrapper">
+                    <label>Sắp xếp:</label>
+                    <select class="sort-dropdown">
+                        <option>Mới nhất / Nổi bật</option>
+                        <option>Giá: Thấp đến Cao</option>
+                        <option>Giá: Cao đến Thấp</option>
+                        <option>Bán chạy nhất</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID (ĐẦY ĐỦ 24 SẢN PHẨM) -->
+            <div class="product-grid" id="productGrid">
+                <div class="product-card">
+                    <div class="discount-badge">-15%</div>
+                    <div class="product-thumb">
+                        <img src="lenmilkcotton50g.jpg" alt="Len Milk Cotton 50g">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len Milk Cotton 50g loại 1 (mềm mịn)</h4>
+                        <div class="product-price">
+                            <span class="price-new">12,000₫</span>
+                            <span class="price-old">15,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-10%</div>
+                    <div class="product-thumb">
+                        <img src="lennhungdua.jpg" alt="Len nhung đũa">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len nhung đũa móc chăn, thảm siêu ấm</h4>
+                        <div class="product-price">
+                            <span class="price-new">35,000₫</span>
+                            <span class="price-old">39,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-5%</div>
+                    <div class="product-thumb">
+                        <img src="bodungcu.jpg" alt="Bộ dụng cụ móc len">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Bộ dụng cụ móc len cho người mới bắt đầu</h4>
+                        <div class="product-price">
+                            <span class="price-new">45,000₫</span>
+                            <span class="price-old">48,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="thodeotainghe.jpg" alt="Bé thỏ trắng đeo tai nghe">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Bé thỏ trắng đeo tai nghe mềm mại</h4>
+                        <div class="product-price">
+                            <span class="price-new">80,000₫</span>
+                            <span class="price-old">100,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-10%</div>
+                    <div class="product-thumb">
+                        <img src="bohoahong.jpg" alt="Bó hoa hồng đỏ">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Bó hoa hồng đỏ len mix cao cấp</h4>
+                        <div class="product-price">
+                            <span class="price-new">450,000₫</span>
+                            <span class="price-old">500,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-10%</div>
+                    <div class="product-thumb">
+                        <img src="chauhoa.jpg" alt="Chậu hoa dây leo">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Chậu hoa dây leo để bàn làm việc</h4>
+                        <div class="product-price">
+                            <span class="price-new">180,000₫</span>
+                            <span class="price-old">200,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="bohoalyhong.jpg" alt="Bó hoa ly hồng">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Bó hoa ly hồng len handmade xinh xắn</h4>
+                        <div class="product-price">
+                            <span class="price-new">320,000₫</span>
+                            <span class="price-old">400,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="hoanhungto.jpg" alt="Thú bông hoa kẽm nhung">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Thú bông hình hoa to bằng kẽm nhung</h4>
+                        <div class="product-price">
+                            <span class="price-new">240,000₫</span>
+                            <span class="price-old">300,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-5%</div>
+                    <div class="product-thumb">
+                        <img src="huusao.jpg" alt="Thú bông hình bé hươu sao">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Thú bông hình bé hươu sao dễ thương</h4>
+                        <div class="product-price">
+                            <span class="price-new">665,000₫</span>
+                            <span class="price-old">700,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="kimmocdethuong.jpg" alt="Bộ 4 kim móc len">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Bộ 4 kim móc len hình dáng dễ thương</h4>
+                        <div class="product-price">
+                            <span class="price-new">320,000₫</span>
+                            <span class="price-old">400,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="kimoclenthatchamphuong.jpg" alt="Kim móc Thất châm phương">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Kim móc Thất châm phương hàng cao cấp</h4>
+                        <div class="product-price">
+                            <span class="price-new">960,000₫</span>
+                            <span class="price-old">1,200,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="lenbongtuyet.jpg" alt="Len bông tuyết">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len bông tuyết mềm mại</h4>
+                        <div class="product-price">
+                            <span class="price-new">64,000₫</span>
+                            <span class="price-old">80,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-15%</div>
+                    <div class="product-thumb">
+                        <img src="lencauvong.jpg" alt="Len cầu vồng">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len cầu vồng nhiều màu</h4>
+                        <div class="product-price">
+                            <span class="price-new">68,000₫</span>
+                            <span class="price-old">80,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-50%</div>
+                    <div class="product-thumb">
+                        <img src="lenkimtuyen.jpg" alt="Len kim tuyến">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len kim tuyến lấp lánh</h4>
+                        <div class="product-price">
+                            <span class="price-new">60,000₫</span>
+                            <span class="price-old">120,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-40%</div>
+                    <div class="product-thumb">
+                        <img src="lenmix.jpg" alt="Len mix lông thỏ">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len mix lông thỏ kim tuyến</h4>
+                        <div class="product-price">
+                            <span class="price-new">72,000₫</span>
+                            <span class="price-old">120,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-15%</div>
+                    <div class="product-thumb">
+                        <img src="lensoivai.jpg" alt="Len sợi vải">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Len sợi vải mềm mại móc túi</h4>
+                        <div class="product-price">
+                            <span class="price-new">59,500₫</span>
+                            <span class="price-old">70,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="remcuahoasen.jpg" alt="Rèm cửa hoa sen">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Rèm cửa hoa sen thanh lịch</h4>
+                        <div class="product-price">
+                            <span class="price-new">480,000₫</span>
+                            <span class="price-old">600,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-10%</div>
+                    <div class="product-thumb">
+                        <img src="tuichuptainghehinhhoa.jpg" alt="Túi chụp tai nghe">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Túi chụp tai nghe hình hoa ly</h4>
+                        <div class="product-price">
+                            <span class="price-new">409,500₫</span>
+                            <span class="price-old">455,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="tuihoaly.jpg" alt="Túi hoa ly len">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Túi hoa ly len handmade</h4>
+                        <div class="product-price">
+                            <span class="price-new">240,000₫</span>
+                            <span class="price-old">300,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-40%</div>
+                    <div class="product-thumb">
+                        <img src="tuikepnachhinhhoa.jpg" alt="Túi kẹp nách hoa ly">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Túi kẹp nách hình hoa ly</h4>
+                        <div class="product-price">
+                            <span class="price-new">252,000₫</span>
+                            <span class="price-old">420,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="tuiso.jpg" alt="Túi hình sò">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Túi hình sò len handmade</h4>
+                        <div class="product-price">
+                            <span class="price-new">280,000₫</span>
+                            <span class="price-old">350,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-15%</div>
+                    <div class="product-thumb">
+                        <img src="thodoinonsinhnhat.jpg" alt="Thỏ đeo nón sinh nhật">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Thỏ đeo nón sinh nhật dễ thương</h4>
+                        <div class="product-price">
+                            <span class="price-new">619,650₫</span>
+                            <span class="price-old">729,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="vitu.jpg" alt="Vịt ú len handmade">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Vịt ú len handmade</h4>
+                        <div class="product-price">
+                            <span class="price-new">96,000₫</span>
+                            <span class="price-old">120,000₫</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">-20%</div>
+                    <div class="product-thumb">
+                        <img src="gaubonghinhtrang.jpg" alt="Gấu bông hình trăng">
+                        <button type="button" class="quick-add-btn">Thêm giỏ hàng 🛒</button>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Gấu bông hình trăng ngủ ngon</h4>
+                        <div class="product-price">
+                            <span class="price-new">252,000₫</span>
+                            <span class="price-old">300,000₫</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI VIẾT TƯ VẤN & BẢO QUẢN LEN -->
+            <article class="seo-content">
+                <div class="table-of-contents">
+                    <div class="toc-title">📋 CẨM NANG ĐAN MÓC LEN [<a href="#seo-body" onclick="toggleToc(event)">Ẩn/Hiện</a>]</div>
+                    <ol id="tocList">
+                        <li><a href="#section1">1. LEN MILK COTTON LÀ GÌ?</a></li>
+                        <li><a href="#section2">2. CÁC LOẠI LEN SỢI ĐƯỢC ƯU CHUỘNG NHẤT</a></li>
+                        <li><a href="#section3">3. CÂU HỎI THƯỜNG GẶP (FAQ)</a></li>
+                    </ol>
+                </div>
+
+                <div class="intro-quote">
+                    "Len sợi đan móc không chỉ là nguyên liệu tạo ra những món đồ ấm áp, dễ thương mà còn là bộ môn giải trí thư giãn tuyệt vời sau giờ làm việc căng thẳng."
+                </div>
+
+                <h3 id="section1" class="section-title">1. LEN MILK COTTON LÀ GÌ?</h3>
+                <p>Len Milk Cotton là dòng len tổng hợp kết hợp giữa sợi cotton mềm mại và acrylic giữ form tốt. Loại len này rất đỗi quen thuộc với các tín đồ đan móc nhờ ưu điểm không xù lông, đa dạng màu sắc và mức giá hợp lý.</p>
+
+                <h3 id="section2" class="section-title">2. CÁC LOẠI LEN SỢI ĐƯỢC ƯU CHUỘNG NHẤT</h3>
+                <ul class="styled-list">
+                    <li><b>Milk Cotton 50g / 125g:</b> Thích hợp móc thú bông (Amigurumi), nón, móc khóa.</li>
+                    <li><b>Len Nhung Đũa / Nhung Tuyết:</b> Sợi to mềm, êm ái, lý tưởng để móc chăn, thảm, thú bông khổng lồ.</li>
+                    <li><b>Len Baby Yarn:</b> Thành phần mềm mịn chuyên dụng cho quần áo, nón, giày sơ sinh của bé.</li>
+                </ul>
+
+                <h3 id="section3" class="section-title">3. CÁC CÂU HỎI THƯỜNG GẶP (FAQ)</h3>
+                <div class="faq-accordion">
+                    <details class="faq-item" open>
+                        <summary>⭐⭐⭐⭐⭐ Người mới bắt đầu nên mua loại len nào?</summary>
+                        <p>Bạn nên bắt đầu với <b>Len Milk Cotton 125g</b> kết hợp kim móc size 3.0mm. Sợi len to vừa phải, không tách sợi giúp bạn dễ nhìn rõ các mũi móc và tháo ra làm lại dễ dàng.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>⭐⭐⭐⭐⭐ Móc áo người lớn cần bao nhiêu cuộn len?</summary>
+                        <p>Thông thường một chiếc áo cộc tay size M cần khoảng 5-6 cuộn Milk Cotton 125g. Nếu móc áo dài tay hoặc dùng họa tiết dày dặn sẽ cần từ 8-10 cuộn.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>⭐⭐⭐⭐⭐ Giặt sản phẩm handmade bằng len thế nào đúng cách?</summary>
+                        <p>Nên giặt tay nhẹ nhàng bằng dầu gội hoặc sữa tắm. Không vắt mạnh, hãy ép nhẹ cho bớt nước và phơi phẳng trên lưới phơi nơi thoáng mát để giữ chuẩn phom dáng.</p>
+                    </details>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- ========================================================== -->
+    <!-- 1. MODAL ĐĂNG NHẬP / ĐĂNG KÝ TÀI KHOẢN                     -->
+    <!-- ========================================================== -->
+    <div class="modal-backdrop" id="authModal">
+        <div class="auth-box">
+            <div class="auth-header">
+                <div class="auth-brand">
+                    <span>🧶</span>
+                    <h3>Tiệm Len Sợi</h3>
+                </div>
+                <button type="button" class="close-modal-btn" onclick="closeAuthModal()">✕</button>
+            </div>
+
+            <!-- Tabs chuyển đổi -->
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab active" id="tabLoginBtn" onclick="switchAuthTab('login')">Đăng nhập</button>
+                <button type="button" class="auth-tab" id="tabRegisterBtn" onclick="switchAuthTab('register')">Đăng ký</button>
+            </div>
+
+            <!-- Form Đăng nhập -->
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email hoặc Số điện thoại *</label>
+                    <input type="text" id="loginIdentifier" required placeholder="Nhập email hoặc SĐT của bạn...">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu *</label>
+                    <input type="password" id="loginPassword" required placeholder="Nhập mật khẩu...">
+                </div>
+                <div class="auth-options">
+                    <label><input type="checkbox" checked> Ghi nhớ đăng nhập</label>
+                    <a href="#" onclick="showToast('🔑 Link khôi phục mật khẩu đã gửi về email!')">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn-auth-submit">ĐĂNG NHẬP</button>
+                <button type="button" class="btn-demo-login" onclick="loginDemo()">✨ Dùng thử Tài khoản Khách hàng Mẫu</button>
+            </form>
+
+            <!-- Form Đăng ký -->
+            <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Họ và tên *</label>
+                    <input type="text" id="regName" required placeholder="Ví dụ: Nguyễn Minh Anh">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại *</label>
+                    <input type="tel" id="regPhone" required placeholder="Ví dụ: 0981441617">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="regEmail" required placeholder="minhanh@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu *</label>
+                    <input type="password" id="regPassword" required placeholder="Tạo mật khẩu tối thiểu 6 ký tự">
+                </div>
+                <button type="submit" class="btn-auth-submit">TẠO TÀI KHOẢN MỚI 🌸</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- 2. MODAL HỒ SƠ CÁ NHÂN & LỊCH SỬ ĐƠN HÀNG                  -->
+    <!-- ========================================================== -->
+    <div class="modal-backdrop" id="accountModal">
+        <div class="account-box">
+            <div class="account-modal-header">
+                <h3>👤 Không gian khách hàng</h3>
+                <button type="button" class="close-modal-btn" onclick="closeAccountModal()">✕</button>
+            </div>
+
+            <div class="account-layout">
+                <!-- Cột điều hướng bên trái -->
+                <div class="account-nav">
+                    <div class="user-avatar-card">
+                        <div class="avatar-circle" id="avatarInitial">M</div>
+                        <h4 id="profileCardName">Minh Anh</h4>
+                        <span class="member-badge">Thành viên thân thiết 🌸</span>
+                    </div>
+                    <button type="button" class="acc-nav-btn active" id="navProfileBtn" onclick="switchAccountSection('profile')">📋 Thông tin cá nhân</button>
+                    <button type="button" class="acc-nav-btn" id="navOrdersBtn" onclick="switchAccountSection('orders')">📦 Lịch sử đơn hàng</button>
+                    <button type="button" class="acc-nav-btn danger" onclick="handleLogout()">🚪 Đăng xuất</button>
+                </div>
+
+                <!-- Nội dung chi tiết bên phải -->
+                <div class="account-body">
+                    <!-- Tab Hồ sơ -->
+                    <div id="profileSection">
+                        <h4>Thông tin tài khoản & Địa chỉ nhận hàng</h4>
+                        <p class="sub-note">Thông tin này sẽ được tự động điền khi bạn thanh toán giỏ hàng.</p>
+                        <form onsubmit="saveProfile(event)">
+                            <div class="form-group">
+                                <label>Họ và tên</label>
+                                <input type="text" id="profName" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Số điện thoại</label>
+                                    <input type="tel" id="profPhone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="profEmail" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ giao hàng mặc định</label>
+                                <input type="text" id="profAddress" placeholder="Nhập địa chỉ nhận hàng của bạn...">
+                            </div>
+                            <button type="submit" class="btn-save-profile">LƯU THAY ĐỔI 💾</button>
+                        </form>
+                    </div>
+
+                    <!-- Tab Đơn hàng -->
+                    <div id="ordersSection" style="display: none;">
+                        <h4>Đơn hàng đã đặt</h4>
+                        <div class="orders-list" id="ordersListContainer">
+                            <!-- Danh sách đơn hàng render bằng JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- 3. GIAO DIỆN NGĂN KÉO GIỎ HÀNG (SLIDE-OUT CART DRAWER)     -->
+    <!-- ========================================================== -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>🛒 Giỏ hàng của bạn (<span id="drawerCount">0</span>)</h3>
+            <button type="button" class="close-cart-btn" onclick="closeCart()" title="Đóng">✕</button>
+        </div>
+
+        <div class="shipping-bar">
+            <p id="shippingText">Mua thêm <b>250.000₫</b> để được <b>Miễn phí vận chuyển</b> 🚚</p>
+            <div class="progress-track">
+                <div class="progress-fill" id="shippingProgress" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <div class="cart-items-container" id="cartItemsContainer">
+            <div class="empty-cart">
+                <span class="empty-icon">🧶</span>
+                <p>Giỏ hàng của bạn đang trống</p>
+                <small>Hãy chọn những cuộn len xinh xắn để bắt đầu dự án nhé!</small>
+                <button type="button" class="btn-continue" onclick="closeCart()">Tiếp tục chọn len</button>
+            </div>
+        </div>
+
+        <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
+            <div class="summary-row">
+                <span>Tạm tính:</span>
+                <span id="cartSubtotal">0₫</span>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển:</span>
+                <span id="cartShipping">25,000₫</span>
+            </div>
+            <div class="summary-row total-row">
+                <span>Tổng cộng:</span>
+                <span id="cartTotal">0₫</span>
+            </div>
+            <button type="button" class="btn-checkout" onclick="openCheckoutModal()">TIẾN HÀNH ĐẶT HÀNG ✨</button>
+        </div>
+    </aside>
+
+    <!-- ========================================================== -->
+    <!-- 4. MODAL ĐẶT HÀNG NHANH                                    -->
+    <!-- ========================================================== -->
+    <div class="modal-backdrop" id="checkoutModal">
+        <div class="checkout-box">
+            <div class="checkout-header">
+                <h3>📦 Xác nhận đơn hàng</h3>
+                <button type="button" onclick="closeCheckoutModal()">✕</button>
+            </div>
+            <form onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label>Họ và tên người nhận *</label>
+                    <input type="text" id="checkoutName" required placeholder="Nhập họ tên của bạn...">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại *</label>
+                    <input type="tel" id="checkoutPhone" required placeholder="Ví dụ: 0981 441 617">
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ giao hàng *</label>
+                    <input type="text" id="checkoutAddress" required placeholder="Số nhà, đường, phường/xã, tỉnh/thành...">
+                </div>
+                <div class="form-group">
+                    <label>Ghi chú đơn hàng (mã màu len...)</label>
+                    <input type="text" id="checkoutNote" placeholder="Ví dụ: Lấy 2 cuộn hồng pastel, 1 cuộn trắng kem">
+                </div>
+                <div class="checkout-total">
+                    Tổng thanh toán: <strong id="modalTotalAmount">0₫</strong>
+                </div>
+                <button type="submit" class="btn-confirm-order">HOÀN TẤT ĐẶT HÀNG 🎉</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- THÔNG BÁO TOAST -->
+    <div class="toast-notify" id="toastNotify">✅ Thành công!</div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>TIỆM LEN SỢI</h3>
+                <p>Chuyên cung cấp len sợi, dụng cụ đan móc và đồ handmade cao cấp hàng đầu Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Bảng màu len đầy đủ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>LIÊN HỆ</h4>
+                <p>📍 Địa chỉ: 123 Đường Len Sợi, Quận 1, TP. HCM</p>
+                <p>📞 Hotline: 098. 144. 16 17</p>
+                <p>✉️ Email: cskh@tiemlensoi.vn</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Tiệm Len Sợi. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: TƯ VẤN LEN + TÀI KHOẢN + GIỎ HÀNG -->
+    <script>
+                // 1. CÔNG CỤ TƯ VẤN CHỌN LEN
+                function adviseYarn() {
+                    const project = document.getElementById('projectType').value;
+                    const recYarn = document.getElementById('recYarn');
+                    const recNeedle = document.getElementById('recNeedle');
+                    const recQty = document.getElementById('recQty');
+                    const resultBox = document.getElementById('advisorResult');
+
+                    if (project === 'amigurumi') {
+                        recYarn.innerText = 'Len Milk Cotton 50g / Baby Yarn';
+                        recNeedle.innerText = '2.0mm - 2.5mm';
+                        recQty.innerText = '1 - 3 cuộn (tùy kích thước thú)';
+                    } else if (project === 'clothes_winter') {
+                        recYarn.innerText = 'Len Nhung Đũa / Len Cừu / Milk Cotton 125g';
+                        recNeedle.innerText = '4.0mm - 5.5mm';
+                        recQty.innerText = '6 - 10 cuộn';
+                    } else if (project === 'baby') {
+                        recYarn.innerText = 'Len Baby Yarn hữu cơ / Cotton cao cấp';
+                        recNeedle.innerText = '2.0mm - 3.0mm';
+                        recQty.innerText = '2 - 4 cuộn';
+                    } else if (project === 'flowers') {
+                        recYarn.innerText = 'Len Milk Cotton 4 sợi / Kẽm nhung';
+                        recNeedle.innerText = '2.5mm - 3.0mm';
+                        recQty.innerText = '1 - 2 cuộn mix nhiều màu';
+                    } else if (project === 'bag') {
+                        recYarn.innerText = 'Len Sợi Vải / Len Sợi Dù / Milk Cotton';
+                        recNeedle.innerText = '3.5mm - 4.5mm';
+                        recQty.innerText = '3 - 5 cuộn';
+                    } else {
+                        recYarn.innerText = 'Len Milk Cotton 50g / 125g';
+                        recNeedle.innerText = '2.5mm - 3.5mm';
+                        recQty.innerText = '2 - 4 cuộn';
+                    }
+                    resultBox.style.display = 'block';
+                }
+
+                // 2. QUẢN LÝ TÀI KHOẢN (LƯU LOCALSTORAGE)
+                let currentUser = JSON.parse(localStorage.getItem('tiemLenUser')) || null;
+                let orderHistory = JSON.parse(localStorage.getItem('tiemLenOrders')) || [];
+
+                function updateAccountUI() {
+                    const btnText = document.getElementById('accountBtnText');
+                    const dropName = document.getElementById('dropdownUserName');
+                    const dropEmail = document.getElementById('dropdownUserEmail');
+
+                    if (currentUser) {
+                        btnText.innerText = currentUser.name + ' ▾';
+                        dropName.innerText = currentUser.name;
+                        dropEmail.innerText = currentUser.email;
+                    } else {
+                        btnText.innerText = 'Tài khoản';
+                        document.getElementById('accountDropdown').classList.remove('show');
+                    }
+                }
+
+                function handleAccountClick() {
+                    if (!currentUser) {
+                        document.getElementById('authModal').classList.add('active');
+                    } else {
+                        document.getElementById('accountDropdown').classList.toggle('show');
+                    }
+                }
+
+                // Đóng dropdown khi click ra ngoài
+                document.addEventListener('click', (e) => {
+                    const wrapper = document.getElementById('accountWrapper');
+                    if (wrapper && !wrapper.contains(e.target)) {
+                        document.getElementById('accountDropdown').classList.remove('show');
+                    }
+                });
+
+                function closeAuthModal() {
+                    document.getElementById('authModal').classList.remove('active');
+                }
+
+                function switchAuthTab(tab) {
+                    const loginForm = document.getElementById('loginForm');
+                    const registerForm = document.getElementById('registerForm');
+                    const tabLoginBtn = document.getElementById('tabLoginBtn');
+                    const tabRegisterBtn = document.getElementById('tabRegisterBtn');
+
+                    if (tab === 'login') {
+                        loginForm.style.display = 'block';
+                        registerForm.style.display = 'none';
+                        tabLoginBtn.classList.add('active');
+                        tabRegisterBtn.classList.remove('active');
+                    } else {
+                        loginForm.style.display = 'none';
+                        registerForm.style.display = 'block';
+                        tabLoginBtn.classList.remove('active');
+                        tabRegisterBtn.classList.add('active');
+                    }
+                }
+
+                function handleLogin(e) {
+                    e.preventDefault();
+                    const identifier = document.getElementById('loginIdentifier').value.trim();
+                    const displayName = identifier.includes('@') ? identifier.split('@')[0] : identifier;
+
+                    currentUser = {
+                        name: displayName,
+                        phone: identifier.includes('@') ? '0981441617' : identifier,
+                        email: identifier.includes('@') ? identifier : 'khachhang@tiemlensoi.vn',
+                        address: '123 Đường Len Sợi, Quận 1, TP. HCM'
+                    };
+                    localStorage.setItem('tiemLenUser', JSON.stringify(currentUser));
+                    updateAccountUI();
+                    closeAuthModal();
+                    showToast(`🌸 Chào mừng ${currentUser.name} quay lại Tiệm Len Sợi!`);
+                }
+
+                function loginDemo() {
+                    currentUser = {
+                        name: 'Nguyễn Minh Anh',
+                        phone: '0981441617',
+                        email: 'minhanh.handmade@gmail.com',
+                        address: '45 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh'
+                    };
+                    localStorage.setItem('tiemLenUser', JSON.stringify(currentUser));
+                    updateAccountUI();
+                    closeAuthModal();
+                    showToast('✨ Đã đăng nhập tài khoản mẫu: Nguyễn Minh Anh!');
+                }
+
+                function handleRegister(e) {
+                    e.preventDefault();
+                    currentUser = {
+                        name: document.getElementById('regName').value.trim(),
+                        phone: document.getElementById('regPhone').value.trim(),
+                        email: document.getElementById('regEmail').value.trim(),
+                        address: ''
+                    };
+                    localStorage.setItem('tiemLenUser', JSON.stringify(currentUser));
+                    updateAccountUI();
+                    closeAuthModal();
+                    showToast(`🎉 Đăng ký thành công! Xin chào ${currentUser.name}!`);
+                }
+
+                function handleLogout() {
+                    currentUser = null;
+                    localStorage.removeItem('tiemLenUser');
+                    updateAccountUI();
+                    closeAccountModal();
+                    showToast('👋 Bạn đã đăng xuất khỏi tài khoản.');
+                }
+
+                function openAccountModal(section) {
+                    document.getElementById('accountDropdown').classList.remove('show');
+                    if (!currentUser) return;
+
+                    document.getElementById('avatarInitial').innerText = currentUser.name.charAt(0).toUpperCase();
+                    document.getElementById('profileCardName').innerText = currentUser.name;
+                    document.getElementById('profName').value = currentUser.name;
+                    document.getElementById('profPhone').value = currentUser.phone;
+                    document.getElementById('profEmail').value = currentUser.email;
+                    document.getElementById('profAddress').value = currentUser.address || '';
+
+                    renderOrders();
+                    switchAccountSection(section);
+                    document.getElementById('accountModal').classList.add('active');
+                }
+
+                function closeAccountModal() {
+                    document.getElementById('accountModal').classList.remove('active');
+                }
+
+                function switchAccountSection(section) {
+                    const profSec = document.getElementById('profileSection');
+                    const ordSec = document.getElementById('ordersSection');
+                    const navProf = document.getElementById('navProfileBtn');
+                    const navOrd = document.getElementById('navOrdersBtn');
+
+                    if (section === 'profile') {
+                        profSec.style.display = 'block';
+                        ordSec.style.display = 'none';
+                        navProf.classList.add('active');
+                        navOrd.classList.remove('active');
+                    } else {
+                        profSec.style.display = 'none';
+                        ordSec.style.display = 'block';
+                        navProf.classList.remove('active');
+                        navOrd.classList.add('active');
+                    }
+                }
+
+                function saveProfile(e) {
+                    e.preventDefault();
+                    currentUser.name = document.getElementById('profName').value.trim();
+                    currentUser.phone = document.getElementById('profPhone').value.trim();
+                    currentUser.email = document.getElementById('profEmail').value.trim();
+                    currentUser.address = document.getElementById('profAddress').value.trim();
+
+                    localStorage.setItem('tiemLenUser', JSON.stringify(currentUser));
+                    document.getElementById('profileCardName').innerText = currentUser.name;
+                    document.getElementById('avatarInitial').innerText = currentUser.name.charAt(0).toUpperCase();
+                    updateAccountUI();
+                    showToast('💾 Đã cập nhật thông tin hồ sơ!');
+                }
+
+                function renderOrders() {
+                    const container = document.getElementById('ordersListContainer');
+                    if (orderHistory.length === 0) {
+                        container.innerHTML = `
+                            <div class="empty-orders">
+                                <p>Bạn chưa có đơn hàng nào.</p>
+                                <small>Hãy thêm sản phẩm vào giỏ hàng để trải nghiệm đặt hàng nhé!</small>
+                            </div>
+                        `;
+                        return;
+                    }
+                    container.innerHTML = orderHistory.map(ord => `
+                        <div class="order-card">
+                            <div class="order-top">
+                                <strong>Mã đơn: #${ord.id}</strong>
+                                <span class="order-status">${ord.status}</span>
+                            </div>
+                            <div class="order-date">Ngày đặt: ${ord.date} | Giao tới: ${ord.address}</div>
+                            <div class="order-items-text">${ord.summary}</div>
+                            <div class="order-total-line">Tổng tiền: <b>${ord.total}</b></div>
+                        </div>
+                    `).join('');
+                }
+
+                // 3. QUẢN LÝ GIỎ HÀNG
+                let cart = [];
+                const FREE_SHIP_LIMIT = 250000;
+                const SHIPPING_FEE = 25000;
+
+                function formatMoney(amount) {
+                    return amount.toLocaleString('vi-VN') + '₫';
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    updateAccountUI();
+                    const addButtons = document.querySelectorAll('.quick-add-btn');
+                    addButtons.forEach((btn) => {
+                        btn.addEventListener('click', function () {
+                            const card = this.closest('.product-card');
+                            const title = card.querySelector('.product-title').innerText.trim();
+                            const priceText = card.querySelector('.price-new').innerText.trim();
+                            const price = parseInt(priceText.replace(/[^\d]/g, ''), 10);
+                            const img = card.querySelector('img').getAttribute('src');
+
+                            addToCart(title, price, img);
+                        });
+                    });
+                });
+
+                function addToCart(title, price, img) {
+                    const existing = cart.find(item => item.title === title);
+                    if (existing) {
+                        existing.qty += 1;
+                    } else {
+                        cart.push({ title, price, img, qty: 1 });
+                    }
+                    renderCart();
+                    showToast(`✅ Đã thêm "${title}" vào giỏ!`);
+                }
+
+                function changeQty(index, delta) {
+                    cart[index].qty += delta;
+                    if (cart[index].qty <= 0) {
+                        cart.splice(index, 1);
+                    }
+                    renderCart();
+                }
+
+                function removeItem(index) {
+                    cart.splice(index, 1);
+                    renderCart();
+                }
+
+                function renderCart() {
+                    const container = document.getElementById('cartItemsContainer');
+                    const footer = document.getElementById('cartFooter');
+                    const badge = document.getElementById('cartBadge');
+                    const drawerCount = document.getElementById('drawerCount');
+
+                    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+                    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+                    badge.innerText = totalQty;
+                    drawerCount.innerText = totalQty;
+
+                    const shippingText = document.getElementById('shippingText');
+                    const shippingProgress = document.getElementById('shippingProgress');
+                    const percent = Math.min((subtotal / FREE_SHIP_LIMIT) * 100, 100);
+                    shippingProgress.style.width = percent + '%';
+
+                    if (subtotal >= FREE_SHIP_LIMIT) {
+                        shippingText.innerHTML = '🎉 Chúc mừng! Đơn hàng của bạn được <b>Miễn phí vận chuyển</b>';
+                    } else {
+                        const remain = FREE_SHIP_LIMIT - subtotal;
+                        shippingText.innerHTML = `Mua thêm <b>${formatMoney(remain)}</b> để được <b>Miễn phí vận chuyển</b> 🚚`;
+                    }
+
+                    if (cart.length === 0) {
+                        footer.style.display = 'none';
+                        container.innerHTML = `
+                            <div class="empty-cart">
+                                <span class="empty-icon">🧶</span>
+                                <p>Giỏ hàng của bạn đang trống</p>
+                                <small>Hãy chọn những cuộn len xinh xắn để bắt đầu dự án nhé!</small>
+                                <button type="button" class="btn-continue" onclick="closeCart()">Tiếp tục chọn len</button>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    footer.style.display = 'block';
+                    container.innerHTML = cart.map((item, idx) => `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.title}">
+                            <div class="cart-item-info">
+                                <h4>${item.title}</h4>
+                                <div class="cart-item-price">${formatMoney(item.price)}</div>
+                                <div class="qty-control">
+                                    <button type="button" onclick="changeQty(${idx}, -1)">−</button>
+                                    <span>${item.qty}</span>
+                                    <button type="button" onclick="changeQty(${idx}, 1)">+</button>
+                                </div>
+                            </div>
+                            <button type="button" class="remove-item-btn" onclick="removeItem(${idx})" title="Xóa">🗑️</button>
+                        </div>
+                    `).join('');
+
+                    const shipping = subtotal >= FREE_SHIP_LIMIT ? 0 : SHIPPING_FEE;
+                    const total = subtotal + shipping;
+
+                    document.getElementById('cartSubtotal').innerText = formatMoney(subtotal);
+                    document.getElementById('cartShipping').innerText = shipping === 0 ? 'Miễn phí' : formatMoney(shipping);
+                    document.getElementById('cartTotal').innerText = formatMoney(total);
+                    document.getElementById('modalTotalAmount').innerText = formatMoney(total);
+                }
+
+                function openCart() {
+                    document.getElementById('cartOverlay').classList.add('active');
+                    document.getElementById('cartDrawer').classList.add('active');
+                }
+
+                function closeCart() {
+                    document.getElementById('cartOverlay').classList.remove('active');
+                    document.getElementById('cartDrawer').classList.remove('active');
+                }
+
+                function openCheckoutModal() {
+                    closeCart();
+                    // Tự động điền thông tin nếu khách đã đăng nhập tài khoản
+                    if (currentUser) {
+                        document.getElementById('checkoutName').value = currentUser.name || '';
+                        document.getElementById('checkoutPhone').value = currentUser.phone || '';
+                        document.getElementById('checkoutAddress').value = currentUser.address || '';
+                    }
+                    document.getElementById('checkoutModal').classList.add('active');
+                }
+
+                function closeCheckoutModal() {
+                    document.getElementById('checkoutModal').classList.remove('active');
+                }
+
+                function submitOrder(e) {
+                    e.preventDefault();
+                    const newOrder = {
+                        id: 'TLS' + Math.floor(100000 + Math.random() * 900000),
+                        date: new Date().toLocaleDateString('vi-VN'),
+                        address: document.getElementById('checkoutAddress').value.trim(),
+                        summary: cart.map(i => `${i.title} (x${i.qty})`).join(', '),
+                        total: document.getElementById('modalTotalAmount').innerText,
+                        status: 'Đang xác nhận'
+                    };
+                    orderHistory.unshift(newOrder);
+                    localStorage.setItem('tiemLenOrders', JSON.stringify(orderHistory));
+
+                    closeCheckoutModal();
+                    cart = [];
+                    renderCart();
+                    showToast(`🎉 Đặt đơn #${newOrder.id} thành công! Xem chi tiết tại mục Tài khoản.`);
+                }
+
+                function showToast(msg) {
+                    const toast = document.getElementById('toastNotify');
+                    toast.innerText = msg;
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 3000);
+                }
+
+                function filterBySearch() {
+                    const keyword = document.getElementById('searchInput').value.toLowerCase().trim();
+                    const cards = document.querySelectorAll('.product-card');
+                    let count = 0;
+                    cards.forEach(card => {
+                        const title = card.querySelector('.product-title').innerText.toLowerCase();
+                        if (title.includes(keyword)) {
+                            card.style.display = 'block';
+                            count++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    document.getElementById('productCount').innerText = `Hiển thị ${count} sản phẩm`;
+                }
+
+                function resetSearch() {
+                    document.getElementById('searchInput').value = '';
+                    filterBySearch();
+                }
+
+                function toggleToc(e) {
+                    e.preventDefault();
+                    const list = document.getElementById('tocList');
+                    list.style.display = list.style.display === 'none' ? 'block' : 'none';
+                }
+    </script>
+</body>
+</html>
